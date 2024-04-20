@@ -6,7 +6,6 @@ from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
 import models
-from models.amenity import Amenity
 
 
 place_amenity = Table("place_amenity", Base.metadata,
@@ -63,5 +62,5 @@ class Place(BaseModel, Base):
         @amenities.setter
         def amenities(self, obj=None):
             """Handles append for adding amenity id to attribute"""
-            if type(obj) is Amenity and obj.id not in self.amenity_ids:
+            if obj.id not in self.amenity_ids:
                 self.amenity_ids.append(obj.id)
