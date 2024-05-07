@@ -76,6 +76,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    """Deploy: pack and deploy."""
     filename = do_pack()
     """Creates and distributes an archive to your web."""
     if filename is None:
