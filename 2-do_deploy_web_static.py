@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Fabric script to generate a .tgz file from the contents of the web_static
 
-from os.path import isfile
+import os.path
 
 from fabric.api import env
 from fabric.api import put
@@ -12,7 +12,7 @@ env.hosts = ["100.25.149.16", "100.25.146.118"]
 
 def do_deploy(archive_path):
     """Distribute an archive to the web servers."""
-    if isfile(archive_path) is False:
+    if os.path.isfile(archive_path) is False:
         return False
     filename = archive_path.split("/")[-1]
     name = filename.split(".")[0]
@@ -25,7 +25,7 @@ def do_deploy(archive_path):
     if run("tar -xzf /tmp/{} -C /data/web_static/releases/{}/".format
            (filename, name)).failed is True:
         return False
-    if run("rm -rf  /tmp/{}".format(filename)).failed is True:
+    if run("rm /tmp/{}".format(filename)).failed is True:
         return False
     if run("mv /data/web_static/releases/{}/web_static/* \
             /data/web_static/releases/{}/".format(name, name)).failed is True:
