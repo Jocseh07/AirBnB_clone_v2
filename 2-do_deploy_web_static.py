@@ -3,7 +3,7 @@
 
 from os.path import isdir, isfile
 
-from fabric-api import env, put, run
+from fabric.api import env, put, run
 
 env.hosts = ["100.25.149.16", "100.25.146.118"]
 
