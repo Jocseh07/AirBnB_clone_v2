@@ -72,6 +72,9 @@ def do_deploy(archive_path):
         is True
     ):
         return False
+    if run("echo 'test' > /data/web_static/current/my_index.html").\
+            failed is True:
+        return False
     return True
 
 
