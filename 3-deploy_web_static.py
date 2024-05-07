@@ -75,10 +75,10 @@ def do_deploy(archive_path):
     return True
 
 
-filename = do_pack()
 
 
 def deploy():
+    filename = do_pack()
     """Creates and distributes an archive to your web."""
     if filename is None:
         return False
