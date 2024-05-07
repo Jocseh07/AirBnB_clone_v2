@@ -12,7 +12,7 @@ env.hosts = ["100.25.149.16", "100.25.146.118"]
 
 def do_pack():
     """Create a tar.gz archive."""
-    date = datetime.now()
+    date = datetime.utcnow()
     tgz = "versions/web_static_{}{}{}{}{}{}.tgz".format(
         date.year, date.month, date.day, date.hour, date.minute, date.second
     )
