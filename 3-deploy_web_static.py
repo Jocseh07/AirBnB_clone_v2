@@ -12,7 +12,7 @@ env.hosts = ["100.25.149.16", "100.25.146.118"]
 
 def do_pack():
     """Create a tar.gz archive."""
-    date = datetime.utcnow()
+    date = datetime.now()
     tgz = "versions/web_static_{}{}{}{}{}{}.tgz".format(
         date.year, date.month, date.day, date.hour, date.minute, date.second
     )
@@ -57,12 +57,12 @@ def do_deploy(archive_path):
     ):
         return False
     if (
-        run("rm -rf  /data/web_static/releases/{}/web_static".format(
+        run("rm -rf /data/web_static/releases/{}/web_static".format(
             name)).failed
         is True
     ):
         return False
-    if run("rm -rf  /data/web_static/current").failed is True:
+    if run("rm -rf /data/web_static/current").failed is True:
         return False
     if (
         run(
