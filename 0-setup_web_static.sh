@@ -36,5 +36,5 @@ CONFIG="server {
         internal;
     }
 }"
-sudo echo -e "$CONFIG" >/etc/nginx/sites-available/default
+echo -e "$CONFIG" >/etc/nginx/sites-available/default
 service nginx restart
