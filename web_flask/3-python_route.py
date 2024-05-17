@@ -24,5 +24,12 @@ def text(text):
     return f"C {escape(text).replace('_', ' ')}"
 
 
+@app.route("/python/<text>", strict_slashes=False)
+def python(text="is cool"):
+    """Display python then text."""
+    text = text.replace('_', ' ')
+    return f"Python {escape(text)}"
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
