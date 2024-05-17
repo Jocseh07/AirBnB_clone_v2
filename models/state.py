@@ -19,14 +19,7 @@ class State(BaseModel, Base):
     def cities(self):
         """Getter attribute to returns the list of City objects."""
         city_list = []
-        full = []
-        all = storage.all()
-        for key in all:
-            one = key.replace('.', ' ')
-            one = one.split()
-            if (one[0] == 'City'):
-                full.append(all[key])
-        for city in full:
+        for city in storage.all(City).values():
             if city.state_id == self.id:
                 city_list.append(city)
         return city_list
