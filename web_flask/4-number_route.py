@@ -36,7 +36,7 @@ def python(text="is cool"):
 def number(number):
     """Display number."""
     if number.isdigit():
-        return f"{number} is a number"
+        return f"{escape(number)} is a number"
     else:
         abort(404)
 
