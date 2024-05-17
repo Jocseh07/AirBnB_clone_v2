@@ -33,10 +33,10 @@ def python(text="is cool"):
 
 
 @app.route("/number/<n>", strict_slashes=False)
-def number(number):
+def number(n):
     """Display number."""
-    if number.isdigit():
-        return f"{escape(number)} is a number"
+    if n.isdigit():
+        return f"{escape(n)} is a number"
     else:
         abort(404)
 
