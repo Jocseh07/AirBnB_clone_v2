@@ -4,9 +4,11 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-    <h1>States</h1>
+    <H1>States</H1>
+    <UL>
     {% for state in states.values() | sort(attribute="name") %}
-        <li>{{ state.id }}: {{ state.name }}</li>
-    {% endfor %
+        <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+    {% endfor %}
+    </UL>
     </BODY>
 </HTML>
