@@ -7,12 +7,12 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route("/cities_by_states", strict_slashes=False)
-def cities_by_states():
+@app.route("/hbnb_filters", strict_slashes=False)
+def hbnb_filters():
     """Display list of all state objects.!"""
     states = storage.all("State")
-    return render_template("8-cities_by_states.html", states=states)
-
+    amenities = storage.all("Amenity")
+    return render_template("10-hbnb_filters.html", states=states, amenities=amenities)
 
 @app.teardown_appcontext
 def teardown_db(exception):
