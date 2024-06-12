@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
+import shlex
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
@@ -24,9 +25,9 @@ class State(BaseModel, Base):
         total = storage.all()
 
         for city in total:
-            city = city.replace('.', ' ')
-            city = city.split()
-            if city[0] == 'City':
+            city_ = city.replace('.', ' ')
+            city_ = shlex.split(city_)
+            if city_[0] == 'City':
                 city_list.append(total[city])
         for city in city_list:
             if city.state_id == self.id:
