@@ -6,6 +6,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from models.city import City
+import models
 
 
 class State(BaseModel, Base):
@@ -20,14 +21,15 @@ class State(BaseModel, Base):
         """Getter attribute to returns the list of City objects."""
         from models import storage
         from models.city import City
+        from models.state import State
         city_list = []
+        state_list = []
         result = []
         total = storage.all()
-
         for city in total:
             new = city.replace('.', ' ')
             new = shlex.split(new)
-            if new[0] == 'City':
+            if new[0] == City.__name__:
                 city_list.append(total[city])
         for city_name in city_list:
             if (city_name.state_id == self.id):
