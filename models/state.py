@@ -22,7 +22,7 @@ class State(BaseModel, Base):
         city_list = []
         result = []
         total = storage.all()
-        
+
         for city in total:
             city = city.replace('.', ' ')
             city = city.split()

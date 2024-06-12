@@ -12,7 +12,9 @@ def hbnb_filters():
     """Display list of all state objects.!"""
     states = storage.all("State")
     amenities = storage.all("Amenity")
-    return render_template("10-hbnb_filters.html", states=states, amenities=amenities)
+    return render_template("10-hbnb_filters.html", states=states,
+                           amenities=amenities)
+
 
 @app.teardown_appcontext
 def teardown_db(exception):
