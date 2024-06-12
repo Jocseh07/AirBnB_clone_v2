@@ -25,11 +25,11 @@ class State(BaseModel, Base):
         total = storage.all()
 
         for city in total:
-            city_ = city.replace('.', ' ')
-            city_ = shlex.split(city_)
-            if city_[0] == 'City':
+            new = city.replace('.', ' ')
+            new = shlex.split(new)
+            if new[0] == 'City':
                 city_list.append(total[city])
-        for city in city_list:
-            if city.state_id == self.id:
-                result.append(city)
+        for city_name in city_list:
+            if (city_name.state_id == self.id):
+                result.append(city_name)
         return result
